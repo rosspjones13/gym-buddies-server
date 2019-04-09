@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  include ::ActionController::Cookies
+
   private
   def secret_key
     'h3llo'

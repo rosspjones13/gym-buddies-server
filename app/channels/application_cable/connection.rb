@@ -10,10 +10,10 @@ module ApplicationCable
 
     def find_verified_user
       begin
-        header_array = request.headers[:HTTP_SEC_WEBSOCKET_PROTOCOL].split(',')
-        token = header_array[header_array.length-1]
-        decoded_token = JWT.decode token.strip, Rails.application.secrets.secret_key_base, true, { :algorithm => 'HS256' }
-        if (current_user = User.find((decoded_token[0])['sub']))
+        token = cookies[:token]
+        # Rails.application.secrets.secret_key_base
+        decoded_token = JWT.decode token.strip, 'h3llo', true, { :algorithm => 'HS256' }
+        if (current_user = User.find((decoded_token[0])['user_id']))
           current_user
         else
           reject_unauthorized_connection
