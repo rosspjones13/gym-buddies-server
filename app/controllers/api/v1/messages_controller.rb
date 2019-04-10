@@ -8,10 +8,10 @@ class Api::V1::MessagesController < ApplicationController
     if @message.save
       message_cable(@message)
       render json: {
-        success: true, object: @message, response_status: success_response
+        success: true, object: @message, response_status: '200'
       }
     else
-      render json: { success: false, response_status: error_response }
+      render json: { success: false, response_status: '406' }
     end
   end
 
@@ -26,8 +26,9 @@ class Api::V1::MessagesController < ApplicationController
       "message_channel_#{message.buddy_id}",
       content: message.content,
       id: message.id,
-      user_id: message.user_id,
-      buddy_id: message.buddy_id
+      username: message.user_name,
+      buddy_id: message.buddy_id,
+      created_at: message.created_at
     )
   end
 end

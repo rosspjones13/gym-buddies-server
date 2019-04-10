@@ -12,8 +12,11 @@ class Api::V1::UsersController < ApplicationController
 
   def buddies
     @user = grab_user
+    user_buddy_messages = @user.all_buddies.map do |buddy|
+      {buddy: buddy, requester: buddy.get_requester, requestee: buddy.get_requestee, messages: buddy.formatted_messages}
+    end
     if @user
-      render json: @user.all_buddies
+      render json: user_buddy_messages
     end
   end
 
