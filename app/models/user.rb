@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :buddies, foreign_key: "requester_id", dependent: :destroy
   has_many :buddied, class_name: "Buddy", foreign_key: "requestee_id", dependent: :destroy
   has_many :messages
-  has_many :goals
+  has_many :goals, dependent: :destroy
+  has_many :workouts, dependent: :destroy
   
   def all_buddies
     self.buddies + self.buddied

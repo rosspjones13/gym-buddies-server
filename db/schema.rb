@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_125157) do
+ActiveRecord::Schema.define(version: 2019_04_11_145459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,25 @@ ActiveRecord::Schema.define(version: 2019_04_04_125157) do
     t.datetime "updated_at", null: false
     t.index ["requestee_id"], name: "index_buddies_on_requestee_id"
     t.index ["requester_id"], name: "index_buddies_on_requester_id"
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.string "start_image"
+    t.string "end_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string "goal_type"
+    t.integer "measurable_achievement"
+    t.datetime "achieve_date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -45,4 +64,19 @@ ActiveRecord::Schema.define(version: 2019_04_04_125157) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "workouts", force: :cascade do |t|
+    t.integer "reps"
+    t.integer "measurable_amount"
+    t.datetime "workout_date"
+    t.bigint "exercise_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_workouts_on_exercise_id"
+    t.index ["user_id"], name: "index_workouts_on_user_id"
+  end
+
+  add_foreign_key "goals", "users"
+  add_foreign_key "workouts", "exercises"
+  add_foreign_key "workouts", "users"
 end

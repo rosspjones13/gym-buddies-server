@@ -8,7 +8,7 @@ class Api::V1::AuthController < ApplicationController
       render json: {
         message: "Authenticated!",
         authenticated: true,
-        user: @user,
+        user: {user: @user, goals: @user.goals},
         token: token
       }, status: :accepted
     else

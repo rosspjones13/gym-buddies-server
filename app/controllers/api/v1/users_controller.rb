@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
   def profile
     @user = grab_user
     if @user
-      render json: @user
+      render json: {user: @user, goals: @user.goals}
     end
   end
 
