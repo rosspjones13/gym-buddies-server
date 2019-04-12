@@ -16,6 +16,16 @@ class User < ApplicationRecord
     self.all_buddies.map(buddy => buddy.messages)
   end
 
+  def user_formatted
+    {
+      id: self.id, 
+      first_name: self.first_name, 
+      last_name: self.last_name, 
+      username: self.username, 
+      location: self.location
+    }
+  end
+
   # def all_buddy_names
   #   grab_buddies = []
   #   self.all_buddies.each do |buds|

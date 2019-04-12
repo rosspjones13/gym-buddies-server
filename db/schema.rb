@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_145459) do
   create_table "goals", force: :cascade do |t|
     t.string "goal_type"
     t.integer "measurable_achievement"
-    t.datetime "achieve_date"
+    t.date "achieve_date"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_145459) do
   create_table "workouts", force: :cascade do |t|
     t.integer "reps"
     t.integer "measurable_amount"
-    t.datetime "workout_date"
+    t.date "workout_date"
     t.bigint "exercise_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

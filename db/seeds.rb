@@ -346,109 +346,149 @@ cardio_exercises = [
   }
 ]
 
-created_exercises = []
+all_created_exercises = []
+
+created_exercises_separated = []
 
 created_arm_exercises = arm_exercises.map do |exercise|
   created = Exercise.create(exercise)
-  created_exercises << created
+  all_created_exercises << created
   created
 end
+
+created_exercises_separated << created_arm_exercises
 
 created_leg_exercises = leg_exercises.map do |exercise|
   created = Exercise.create(exercise)
-  created_exercises << created
+  all_created_exercises << created
   created
 end
+
+created_exercises_separated << created_leg_exercises
 
 created_ab_exercises = ab_exercises.map do |exercise|
   created = Exercise.create(exercise)
-  created_exercises << created
+  all_created_exercises << created
   created
 end
+
+created_exercises_separated << created_ab_exercises
 
 created_chest_exercises = chest_exercises.map do |exercise|
   created = Exercise.create(exercise)
-  created_exercises << created
+  all_created_exercises << created
   created
 end
+
+created_exercises_separated << created_chest_exercises
 
 created_back_exercises = back_exercises.map do |exercise|
   created = Exercise.create(exercise)
-  created_exercises << created
+  all_created_exercises << created
   created
 end
+
+created_exercises_separated << created_back_exercises
 
 created_shoulder_exercises = shoulder_exercises.map do |exercise|
   created = Exercise.create(exercise)
-  created_exercises << created
+  all_created_exercises << created
   created
 end
 
+created_exercises_separated << created_shoulder_exercises
+
 created_cardio_exercises = cardio_exercises.map do |exercise|
   created = Exercise.create(exercise)
-  created_exercises << created
+  all_created_exercises << created
   created
 end
+
+created_exercises_separated << created_cardio_exercises
 
 all_workouts = []
 
 created_users.each do |user|
-  4.times do |week|
-    9.times do |day|
-      6.times do |set|
-        case day
-        when 1
-          all_workouts << {
-            reps: Faker::Number.between(1,15), 
-            measurable_amount: Faker::Number.between(50,150), 
-            workout_date: Faker::Date.backward(week * 7 + day), exercise: created_arm_exercises.sample,
-            user: user
-          }
-        when 2
-          all_workouts << {
-            reps: Faker::Number.between(1,15), 
-            measurable_amount: Faker::Number.between(50,150), 
-            workout_date: Faker::Date.backward(week * 7 + day), exercise: created_leg_exercises.sample,
-            user: user
-          }
-        when 3
-          all_workouts << {
-            reps: Faker::Number.between(1,15), 
-            measurable_amount: Faker::Number.between(50,150), 
-            workout_date: Faker::Date.backward(week * 7 + day), exercise: created_ab_exercises.sample,
-            user: user
-          }
-        when 4
-          all_workouts << {
-            reps: Faker::Number.between(1,15), 
-            measurable_amount: Faker::Number.between(50,150), 
-            workout_date: Faker::Date.backward(week * 7 + day), exercise: created_chest_exercises.sample,
-            user: user
-          }
-        when 6
-          all_workouts << {
-            reps: Faker::Number.between(1,15), 
-            measurable_amount: Faker::Number.between(50,150), 
-            workout_date: Faker::Date.backward(week * 7 + day), exercise: created_back_exercises.sample,
-            user: user
-          }
-        when 7
-          all_workouts << {
-            reps: Faker::Number.between(1,15), 
-            measurable_amount: Faker::Number.between(50,150), 
-            workout_date: Faker::Date.backward(week * 7 + day), exercise: created_shoulder_exercises.sample,
-            user: user
-          }
-        when 8
-          all_workouts << {
-            reps: Faker::Number.between(1,10), 
-            measurable_amount: Faker::Number.between(420,600), 
-            workout_date: Faker::Date.backward(week * 7 + day), exercise: created_cardio_exercises.sample,
-            user: user
-          }
-        else
-
+  counter = 0
+  20.times do |week|
+    day = 1
+    skip_day_1 = Faker::Number.between(1, 7)
+    skip_day_2 = Faker::Number.between(1, 7)
+    while skip_day_1 == skip_day_2
+      skip_day_2 = Faker::Number.between(1, 7)
+    end
+    skip_day_3 = Faker::Number.between(1, 7)
+    while skip_day_1 == skip_day_3 || skip_day_2 == skip_day_3
+      skip_day_3 = Faker::Number.between(1, 7)
+    end
+    while day <= 7 do
+      if day == skip_day_1 || day == skip_day_2 || day == skip_day_3
+        day += 1
+      else
+        Faker::Number.between(3,6).times do |set|
+          case counter
+          when 0
+            all_workouts << {
+              reps: Faker::Number.between(5,15), 
+              measurable_amount: Faker::Number.between(50,150), 
+              workout_date: Date.today - (week * 7 + day), 
+              exercise: created_arm_exercises.sample,
+              user: user
+            }
+          when 1
+            all_workouts << {
+              reps: Faker::Number.between(5,15), 
+              measurable_amount: Faker::Number.between(50,150), 
+              workout_date: Date.today - (week * 7 + day), 
+              exercise: created_leg_exercises.sample,
+              user: user
+            }
+          when 2
+            all_workouts << {
+              reps: Faker::Number.between(5,15), 
+              measurable_amount: Faker::Number.between(50,150), 
+              workout_date: Date.today - (week * 7 + day), 
+              exercise: created_ab_exercises.sample,
+              user: user
+            }
+          when 3
+            all_workouts << {
+              reps: Faker::Number.between(5,15), 
+              measurable_amount: Faker::Number.between(50,150), 
+              workout_date: Date.today - (week * 7 + day), 
+              exercise: created_chest_exercises.sample,
+              user: user
+            }
+          when 4
+            all_workouts << {
+              reps: Faker::Number.between(5,15), 
+              measurable_amount: Faker::Number.between(50,150), 
+              workout_date: Date.today - (week * 7 + day), 
+              exercise: created_back_exercises.sample,
+              user: user
+            }
+          when 5
+            all_workouts << {
+              reps: Faker::Number.between(5,15), 
+              measurable_amount: Faker::Number.between(50,150), 
+              workout_date: Date.today - (week * 7 + day), 
+              exercise: created_shoulder_exercises.sample,
+              user: user
+            }
+          when 6
+            all_workouts << {
+              reps: Faker::Number.between(1,3), 
+              measurable_amount: Faker::Number.between(420,600), 
+              workout_date: Date.today - (week * 7 + day), 
+              exercise: created_cardio_exercises.sample,
+              user: user
+            }
+          else
+            counter = 0
+          end
         end
+        day += 1
+        counter += 1
       end
     end
   end

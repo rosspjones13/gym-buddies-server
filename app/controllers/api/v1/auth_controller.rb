@@ -8,7 +8,13 @@ class Api::V1::AuthController < ApplicationController
       render json: {
         message: "Authenticated!",
         authenticated: true,
-        user: {user: @user, goals: @user.goals},
+        user: {
+          user: @user,
+          goals: @user.goals, 
+          workouts: user_workouts,
+          buddies: user_buddy_messages,
+          exercises: Exercise.all
+        },
         token: token
       }, status: :accepted
     else
@@ -17,6 +23,24 @@ class Api::V1::AuthController < ApplicationController
         message: "Wrong username or password!",
         authenticated: false
       }, status: :not_acceptable
+    end
+  end
+
+  private
+  def user_buddy_messages
+    @user.all_buddies.map do |buddy|
+      {
+        buddy: buddy, 
+        requester: buddy.get_requester, 
+        requestee: buddy.get_requestee, 
+        messages: buddy.formatted_messages
+      }
+    end
+  end
+
+  def user_workouts
+    @user.workouts.map do |workout|
+      {workout: workout, exercise: workout.exercise_info}
     end
   end
 end

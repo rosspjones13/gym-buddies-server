@@ -5,15 +5,37 @@ class Api::V1::UsersController < ApplicationController
   
   def profile
     @user = grab_user
+    user_buddy_messages = @user.all_buddies.map do |buddy|
+      {
+        buddy: buddy, 
+        requester: buddy.get_requester, 
+        requestee: buddy.get_requestee, 
+        messages: buddy.formatted_messages
+      }
+    end
+    user_workouts = @user.workouts.map do |workout|
+      {workout: workout, exercise: workout.exercise_info}
+    end
     if @user
-      render json: {user: @user, goals: @user.goals}
+      render json: {
+        user: @user.user_formatted, 
+        goals: @user.goals, 
+        buddies: user_buddy_messages, 
+        workouts: user_workouts,
+        exercises: Exercise.all
+      }
     end
   end
 
   def buddies
     @user = grab_user
     user_buddy_messages = @user.all_buddies.map do |buddy|
-      {buddy: buddy, requester: buddy.get_requester, requestee: buddy.get_requestee, messages: buddy.formatted_messages}
+      {
+        buddy: buddy, 
+        requester: buddy.get_requester, 
+        requestee: buddy.get_requestee, 
+        messages: buddy.formatted_messages
+      }
     end
     if @user
       render json: user_buddy_messages
