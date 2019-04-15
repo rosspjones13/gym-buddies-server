@@ -57,19 +57,19 @@ arm_exercises = [
     end_image: "https://wger.de/media/exercise-images/88/Narrow-grip-bench-press-2.png"
   },
   {
-    name: "Biceps Curl With Cable", 
+    name: "Bicep Curls With Cable", 
     category: "Arms", 
     start_image: "https://wger.de/media/exercise-images/129/Standing-biceps-curl-1.png",
     end_image: "https://wger.de/media/exercise-images/129/Standing-biceps-curl-2.png"
   },
   {
-    name: "Biceps Curls With Barbell", 
+    name: "Bicep Curls With Barbell", 
     category: "Arms", 
     start_image: "https://wger.de/media/exercise-images/74/Bicep-curls-1.png",
     end_image: "https://wger.de/media/exercise-images/74/Bicep-curls-2.png"
   },
   {
-    name: "Biceps Curls With Dumbbell", 
+    name: "Bicep Curls With Dumbbell", 
     category: "Arms", 
     start_image: "https://wger.de/media/exercise-images/81/Biceps-curl-1.png",
     end_image: "https://wger.de/media/exercise-images/81/Biceps-curl-2.png"
@@ -79,12 +79,6 @@ arm_exercises = [
     category: "Arms", 
     start_image: "https://wger.de/media/exercise-images/82/Tricep-dips-2-1.png",
     end_image: "https://wger.de/media/exercise-images/82/Tricep-dips-2-2.png"
-  },
-  {
-    name: "Dips Between Two Benches", 
-    category: "Arms", 
-    start_image: "https://wger.de/media/exercise-images/83/Bench-dips-1.png",
-    end_image: "https://wger.de/media/exercise-images/83/Bench-dips-2.png"
   },
   {
     name: "French Press", 

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: %i(index)
-      resources :messages, only: %i(create index)
+      resources :buddies, only: %i(create)
+      resources :messages, only: %i(create)
+      resources :workouts, only: %i(create)
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       get '/buddies', to: 'users#buddies'

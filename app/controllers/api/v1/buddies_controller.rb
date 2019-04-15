@@ -1,13 +1,30 @@
 class Api::V1::BuddiesController < ApplicationController    
-  # def messages
-  #   @user = grab_user
-  #   render json: @user.all_buddies.map{|bud| bud.get_requester}
-  # end
+  def create
+    @buddy = Buddy.new(buddy_params)
+    if @buddy.save
+      buddy_cable(@buddy)
+      render json: {
+        success: true, object: @buddy, response_status: '200'
+      }
+    else
+      render json: { success: false, response_status: '406' }
+    end
+  end
 
   private
-  def grab_user
-    token = request.headers["Authentication"].split(' ')[1]
-    payload = decode(token)
-    User.find(payload["user_id"])
+  def buddy_params
+    params.require(:buddy).permit(:requester_id, :requestee_id, :buddy_type)
+  end
+
+  def buddy_cable(buddy)
+    ActionCable.server.broadcast(
+      "buddy_channel_#{buddy.requestee_id}",
+      id: buddy.id,
+      requester_id: buddy.requester_id,
+      requestee_id: buddy.requestee_id,
+      buddy_type: buddy.buddy_type
+      # username: message.user_name,
+      # created_at: message.created_at
+    )
   end
 end

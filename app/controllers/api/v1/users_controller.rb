@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   def index
-    render json: User.all
+    render json: all_user_names
   end
   
   def profile
@@ -43,6 +43,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
+  def all_user_names
+    User.all.map do |user|
+      user.user_formatted
+    end
+  end
+
   def grab_user
     token = request.headers["Authentication"].split(' ')[1]
     payload = decode(token)
