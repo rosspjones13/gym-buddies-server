@@ -22,7 +22,8 @@ class User < ApplicationRecord
       first_name: self.first_name, 
       last_name: self.last_name, 
       username: self.username, 
-      location: self.location
+      location: self.location,
+      status: self.status
     }
   end
 

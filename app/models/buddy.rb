@@ -4,11 +4,11 @@ class Buddy < ApplicationRecord
   has_many :messages
 
   def get_requester
-    {first_name: self.requester.first_name, last_name: self.requester.last_name, username: self.requester.username}
+    {id: self.requester.id, first_name: self.requester.first_name, last_name: self.requester.last_name, username: self.requester.username, status: self.requester.status}
   end
 
   def get_requestee
-    {first_name: self.requestee.first_name, last_name: self.requestee.last_name, username: self.requestee.username}
+    {id: self.requestee.id, first_name: self.requestee.first_name, last_name: self.requestee.last_name, username: self.requestee.username, status: self.requestee.status}
   end
 
   def formatted_messages

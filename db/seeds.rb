@@ -24,13 +24,14 @@ all_users = [
   {first_name: "Ben", last_name: "Yellin", username: "ben", password: "pass", location: 20004, status: "offline"},
   {first_name: "Matthew", last_name: "Kay", username: "matthew", password: "pass", location: 20004, status: "offline"},
   {first_name: "Will", last_name: "Ley", username: "will", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Jonnel", last_name: "Benjamin", username: "will", password: "pass", location: 20004, status: "offline"}
+  {first_name: "Jonnel", last_name: "Benjamin", username: "jonnel", password: "pass", location: 20004, status: "offline"}
+  # {first_name: "Jonnel", last_name: "Benjamin", username: "will", password: "pass", location: 20004, status: "offline"}
 ]
 
 rando_users = [
   {first_name: "Jim", last_name: "Buddie", username: "jim", password: "pass", location: 20005, status: "offline"},
   {first_name: "Gal", last_name: "Fitz", username: "gal", password: "pass", location: 20005, status: "offline"},
-  {first_name: "", last_name: "Fitz", username: "gal", password: "pass", location: 20005, status: "offline"}
+  {first_name: "Wate", last_name: "Lyft", username: "wate", password: "pass", location: 20005, status: "offline"}
 ]
 
 created_users = all_users.map {|user| User.create(user)}

@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
     if @user
       render json: {
         user: @user.user_formatted, 
-        goals: @user.goals, 
+        # goals: @user.goals, 
         buddies: user_buddy_messages, 
         workouts: user_workouts,
         exercises: Exercise.all

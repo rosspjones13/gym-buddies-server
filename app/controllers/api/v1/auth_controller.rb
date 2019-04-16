@@ -10,7 +10,7 @@ class Api::V1::AuthController < ApplicationController
         authenticated: true,
         user: {
           user: @user,
-          goals: @user.goals, 
+          # goals: @user.goals, 
           workouts: user_workouts,
           buddies: user_buddy_messages,
           exercises: Exercise.all

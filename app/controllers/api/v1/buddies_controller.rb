@@ -11,6 +11,14 @@ class Api::V1::BuddiesController < ApplicationController
     end
   end
 
+  def destroy
+    byebug
+  end
+
+  def update
+    byebug
+  end
+
   private
   def buddy_params
     params.require(:buddy).permit(:requester_id, :requestee_id, :buddy_type)
@@ -23,8 +31,6 @@ class Api::V1::BuddiesController < ApplicationController
       requester_id: buddy.requester_id,
       requestee_id: buddy.requestee_id,
       buddy_type: buddy.buddy_type
-      # username: message.user_name,
-      # created_at: message.created_at
     )
   end
 end
