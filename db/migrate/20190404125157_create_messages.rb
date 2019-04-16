@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.belongs_to :user
       t.belongs_to :buddy
       t.text :content
+      t.boolean :read
 
       t.timestamps
     end

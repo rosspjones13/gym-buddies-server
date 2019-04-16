@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_145459) do
     t.bigint "user_id"
     t.bigint "buddy_id"
     t.text "content"
+    t.boolean "read"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buddy_id"], name: "index_messages_on_buddy_id"
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_145459) do
     t.string "username"
     t.string "password_digest"
     t.integer "location"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

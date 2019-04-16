@@ -5,14 +5,37 @@ DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
 all_users = [
-  {first_name: "Ross", last_name: "Jones", username: "ross", password: "pass", location: 21117},
-  {first_name: "Adrienne", last_name: "Agostini", username: "adrienne", password: "pass", location: 21117},
-  {first_name: "Chine", last_name: "Anikwe", username: "chine", password: "pass", location: 20005},
-  {first_name: "Shannon", last_name: "Nabors", username: "shannon", password: "pass", location: 20005},
-  {first_name: "James", last_name: "Clement", username: "James", password: "pass", location: 20005},
+  {first_name: "Ross", last_name: "Jones", username: "ross", password: "pass", location: 21117, status: "offline"},
+  {first_name: "Adrienne", last_name: "Agostini", username: "adrienne", password: "pass", location: 21117, status: "offline"},
+  {first_name: "Chine", last_name: "Anikwe", username: "chine", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Shannon", last_name: "Nabors", username: "shannon", password: "pass", location: 20005, status: "offline"},
+  {first_name: "James", last_name: "Clement", username: "james", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Artem", last_name: "Metelskyi", username: "artem", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Phil", last_name: "Hartley", username: "phil", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Hai", last_name: "Nguyen", username: "hai", password: "pass", location: 20005, status: "offline"}, 
+  {first_name: "Andrea", last_name: "Williams", username: "andrea", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Heloise", last_name: "Taillet", username: "heloise", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Kyle", last_name: "Houghton", username: "kyle", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Anthony", last_name: "Gregg", username: "ant", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Chris", last_name: "Jones", username: "chris", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Ryan", last_name: "Gill", username: "ryan", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Shinik", last_name: "Cupo", username: "shinik", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Benjamin", last_name: "Addai", username: "benjamin", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Ben", last_name: "Yellin", username: "ben", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Matthew", last_name: "Kay", username: "matthew", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Will", last_name: "Ley", username: "will", password: "pass", location: 20004, status: "offline"},
+  {first_name: "Jonnel", last_name: "Benjamin", username: "will", password: "pass", location: 20004, status: "offline"}
+]
+
+rando_users = [
+  {first_name: "Jim", last_name: "Buddie", username: "jim", password: "pass", location: 20005, status: "offline"},
+  {first_name: "Gal", last_name: "Fitz", username: "gal", password: "pass", location: 20005, status: "offline"},
+  {first_name: "", last_name: "Fitz", username: "gal", password: "pass", location: 20005, status: "offline"}
 ]
 
 created_users = all_users.map {|user| User.create(user)}
+
+created_randos = rando_users.map {|user| User.create(user)}
 
 all_buddies = []
 
@@ -32,8 +55,8 @@ created_buddies = all_buddies.map {|buddies| Buddy.create(buddies)}
 
 created_buddies.each do |buddy_convo|
   10.times do |i|
-    Message.create({user: buddy_convo.requester, buddy: buddy_convo, content: Faker::TvShows::GameOfThrones.quote})
-    Message.create({user: buddy_convo.requestee, buddy: buddy_convo, content: Faker::TvShows::GameOfThrones.quote})
+    Message.create({user: buddy_convo.requester, buddy: buddy_convo, content: Faker::TvShows::GameOfThrones.quote, read: true})
+    Message.create({user: buddy_convo.requestee, buddy: buddy_convo, content: Faker::TvShows::GameOfThrones.quote, read: true})
   end
 end
 
