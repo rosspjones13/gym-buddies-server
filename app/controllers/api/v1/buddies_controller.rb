@@ -12,11 +12,13 @@ class Api::V1::BuddiesController < ApplicationController
   end
 
   def destroy
-    byebug
+    @buddy = Buddy.find(params[:id])
+    @buddy.destroy
   end
 
   def update
-    byebug
+    @buddy = Buddy.find(params[:id]).update(buddy_params)
+    render json: @buddy
   end
 
   private
