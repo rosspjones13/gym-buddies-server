@@ -14,6 +14,11 @@ class Api::V1::MessagesController < ApplicationController
     end
   end
 
+  def update
+    @message = Message.find(params[:id]).update(message_params)
+    render json: @message
+  end
+
   private
 
   def message_params

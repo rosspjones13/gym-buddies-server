@@ -7,6 +7,6 @@ class Message < ApplicationRecord
   end
 
   def formatted
-    {username: self.user_name, content: self.content, buddy_id: self.buddy_id, created_at: self.created_at, read: self.read}
+    {id: self.id, username: self.user_name, content: self.content, buddy_id: self.buddy_id, created_at: self.created_at, read: self.read}
   end
 end
