@@ -1,8 +1,4 @@
 class Api::V1::MessagesController < ApplicationController
-  def index
-    render json: Message.all
-  end
-
   def create
     @message = Message.new(message_params)
     if @message.save
@@ -18,7 +14,7 @@ class Api::V1::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:user_id, :buddy_id, :content)
+    params.require(:message).permit(:user_id, :buddy_id, :content, :read)
   end
 
   def message_cable(message)
@@ -28,6 +24,7 @@ class Api::V1::MessagesController < ApplicationController
       id: message.id,
       username: message.user_name,
       buddy_id: message.buddy_id,
+      read: message.read,
       created_at: message.created_at
     )
   end

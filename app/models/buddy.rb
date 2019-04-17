@@ -12,7 +12,8 @@ class Buddy < ApplicationRecord
   end
 
   def formatted_messages
-    self.messages.map do |message|
+    sorted = self.messages.sort_by {|message| message.created_at}
+    sorted.map do |message|
       message.formatted
     end
   end

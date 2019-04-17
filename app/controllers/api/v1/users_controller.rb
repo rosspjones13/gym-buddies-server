@@ -2,6 +2,11 @@ class Api::V1::UsersController < ApplicationController
   def index
     render json: all_user_names
   end
+
+  def update
+    User.find(params[:id]).update(user_params)
+    render json: User.find(params[:id]).user_formatted
+  end
   
   def profile
     @user = grab_user
@@ -47,6 +52,10 @@ class Api::V1::UsersController < ApplicationController
     User.all.map do |user|
       user.user_formatted
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :username, :location, :status)
   end
 
   def grab_user

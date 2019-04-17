@@ -1,7 +1,7 @@
 class BuddiesChannel < ApplicationCable::Channel
   # calls connect in client
   def subscribed
-    stream_from "buddy_channel_#{params[:user]}"
+    stream_from "buddy_channel"
   end
 
   # calls disconnect in client
