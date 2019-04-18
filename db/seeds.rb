@@ -34,9 +34,15 @@ rando_users = [
   {first_name: "Wate", last_name: "Lyft", username: "wate", password: "pass", location: 20005, status: "offline"}
 ]
 
+got_users = Array.new(30).map do |i| 
+  {first_name: Faker::TvShows::GameOfThrones.character.split[0], last_name: Faker::TvShows::GameOfThrones.house, username: Faker::TvShows::GameOfThrones.character.split[0].downcase, password: "pass", location: 20005, status: "offline"}
+end
+
 created_users = all_users.map {|user| User.create(user)}
 
 created_randos = rando_users.map {|user| User.create(user)}
+
+created_gots = got_users.map {|user| User.create(user)}
 
 all_buddies = []
 
