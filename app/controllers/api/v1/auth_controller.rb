@@ -3,14 +3,15 @@ class Api::V1::AuthController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       #username is found AND password matches
+      
       payload = {user_id: @user.id}
       token = encode(payload)
+      @user.update(status: "online")
       render json: {
         message: "Authenticated!",
         authenticated: true,
         user: {
           user: @user,
-          # goals: @user.goals, 
           workouts: user_workouts,
           buddies: user_buddy_messages,
           exercises: Exercise.all

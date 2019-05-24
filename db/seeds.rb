@@ -5,37 +5,36 @@ DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
 all_users = [
-  {first_name: "Ross", last_name: "Jones", username: "ross", password: "pass", location: 21117, status: "offline"},
-  {first_name: "Adrienne", last_name: "Agostini", username: "adrienne", password: "pass", location: 21117, status: "offline"},
-  {first_name: "Chine", last_name: "Anikwe", username: "chine", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Shannon", last_name: "Nabors", username: "shannon", password: "pass", location: 20005, status: "offline"},
-  {first_name: "James", last_name: "Clement", username: "james", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Artem", last_name: "Metelskyi", username: "artem", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Phil", last_name: "Hartley", username: "phil", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Hai", last_name: "Nguyen", username: "hai", password: "pass", location: 20005, status: "offline"}, 
-  {first_name: "Andrea", last_name: "Williams", username: "andrea", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Heloise", last_name: "Taillet", username: "heloise", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Kyle", last_name: "Houghton", username: "kyle", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Anthony", last_name: "Gregg", username: "ant", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Chris", last_name: "Jones", username: "chris", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Ryan", last_name: "Gill", username: "ryan", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Shinik", last_name: "Cupo", username: "shinik", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Benjamin", last_name: "Addai", username: "benjamin", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Ben", last_name: "Yellin", username: "ben", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Matthew", last_name: "Kay", username: "matthew", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Will", last_name: "Ley", username: "will", password: "pass", location: 20004, status: "offline"},
-  {first_name: "Jonnel", last_name: "Benjamin", username: "jonnel", password: "pass", location: 20004, status: "offline"}
-  # {first_name: "Jonnel", last_name: "Benjamin", username: "will", password: "pass", location: 20004, status: "offline"}
+  {first_name: "Ross", last_name: "Jones", username: "ross", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Adrienne", last_name: "Agostini", username: "adrienne", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Chine", last_name: "Anikwe", username: "chine", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Shannon", last_name: "Nabors", username: "shannon", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "James", last_name: "Clement", username: "james", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Artem", last_name: "Metelskyi", username: "artem", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Phil", last_name: "Hartley", username: "phil", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Hai", last_name: "Nguyen", username: "hai", password: "pass", status: "offline", checkin: "null"}, 
+  {first_name: "Andrea", last_name: "Williams", username: "andrea", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Heloise", last_name: "Taillet", username: "heloise", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Kyle", last_name: "Houghton", username: "kyle", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Anthony", last_name: "Gregg", username: "ant", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Chris", last_name: "Jones", username: "chris", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Ryan", last_name: "Gill", username: "ryan", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Shinik", last_name: "Cupo", username: "shinik", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Benjamin", last_name: "Addai", username: "benjamin", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Ben", last_name: "Yellin", username: "ben", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Matthew", last_name: "Kay", username: "matthew", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Will", last_name: "Ley", username: "will", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Jonnel", last_name: "Benjamin", username: "jonnel", password: "pass", status: "offline", checkin: "null"}
 ]
 
 rando_users = [
-  {first_name: "Jim", last_name: "Buddie", username: "jim", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Gal", last_name: "Fitz", username: "gal", password: "pass", location: 20005, status: "offline"},
-  {first_name: "Wate", last_name: "Lyft", username: "wate", password: "pass", location: 20005, status: "offline"}
+  {first_name: "Jim", last_name: "Buddie", username: "jim", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Gal", last_name: "Fitz", username: "gal", password: "pass", status: "offline", checkin: "null"},
+  {first_name: "Wate", last_name: "Lyft", username: "wate", password: "pass", status: "offline", checkin: "null"}
 ]
 
 got_users = Array.new(30).map do |i| 
-  {first_name: Faker::TvShows::GameOfThrones.character.split[0], last_name: Faker::TvShows::GameOfThrones.house, username: Faker::TvShows::GameOfThrones.character.split[0].downcase, password: "pass", location: 20005, status: "offline"}
+  {first_name: Faker::TvShows::GameOfThrones.character.split[0], last_name: Faker::TvShows::GameOfThrones.house, username: Faker::TvShows::GameOfThrones.character.split[0].downcase, password: "pass", status: "offline", checkin: "null"}
 end
 
 created_users = all_users.map {|user| User.create(user)}
