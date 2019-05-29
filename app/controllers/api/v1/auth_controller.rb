@@ -6,7 +6,6 @@ class Api::V1::AuthController < ApplicationController
       
       payload = {user_id: @user.id}
       token = encode(payload)
-      @user.update(status: "online")
       render json: {
         message: "Authenticated!",
         authenticated: true,
