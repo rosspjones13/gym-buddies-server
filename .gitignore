@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# hidden
+/app/channels/status_channel.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
