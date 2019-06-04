@@ -1,24 +1,24 @@
-# README
+# Gym Buddies
+## Rails Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was built on the Ruby on Rails framework, you can learn more about Ruby on Rails [here](https://guides.rubyonrails.org/).
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+Gives gym goers a place to track their workouts, check-in to a local gym, and find a gym buddy and connect with them through live messaging.
 
-* System dependencies
+## To run this program:
 
-* Configuration
+### Clone this repository and the client repository at:
 
-* Database creation
+Gym Buddies ReactJS Client: [https://github.com/rosspjones13/gym-buddies-client](https://github.com/rosspjones13/gym-buddies-client).<br>
+Follow the steps to run the client.
 
-* Database initialization
+### How to start the server:
 
-* How to run the test suite
+#### `rails start`
 
-* Services (job queues, cache servers, search engines, etc.)
+Runs the api in a local host.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-* Deployment instructions
-
-* ...
+There are specific routes that are accessible to create, edit and view the api.<br>
