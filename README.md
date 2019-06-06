@@ -16,9 +16,19 @@ Follow the steps to run the client.
 
 ### How to start the server:
 
+To create the seeded Postgres database, follow these steps:
+
+#### 1. `rails db:create`
+
+#### 2. `rails db:migrate`
+
+#### 3. `rails db:seed`
+
+Once the database is created run the following command:
+
 #### `rails start`
 
-Runs the api in a local host.<br>
+This runs the api in a local host.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 There are specific routes that are accessible to create, edit and view the api.<br>
