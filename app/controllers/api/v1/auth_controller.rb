@@ -3,7 +3,7 @@ class Api::V1::AuthController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       #username is found AND password matches
-      
+      @user.update_attribute(:status, "online")
       payload = {user_id: @user.id}
       token = encode(payload)
       render json: {
