@@ -7,6 +7,10 @@ This app was built on the Ruby on Rails framework, you can learn more about Ruby
 
 Gives gym goers a place to track their workouts, check-in to a local gym, and find a gym buddy and connect with them through live messaging.
 
+## Demonstration
+
+You can see a video demonstration [here](https://www.youtube.com/watch?v=_eG66odazLw&feature=youtu.be)
+
 ## To run this program:
 
 ### Clone this repository and the client repository at:
