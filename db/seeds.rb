@@ -1,8 +1,8 @@
 require 'faker'
-require 'database_cleaner'
+# require 'database_cleaner'
 
-DatabaseCleaner.strategy = :truncation
-DatabaseCleaner.clean
+# DatabaseCleaner.strategy = :truncation
+# DatabaseCleaner.clean
 
 all_users = [
   {first_name: "Ross", last_name: "Jones", username: "ross", password: "pass", status: "offline", checkin: "null"},
