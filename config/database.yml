@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: GymBuddies-API_production
-  username: GymBuddies-API
-  password: <%= ENV['GYMBUDDIES-API_DATABASE_PASSWORD'] %>
+  # username: GymBuddies-API
+  # password: <%= ENV['GYMBUDDIES-API_DATABASE_PASSWORD'] %>
