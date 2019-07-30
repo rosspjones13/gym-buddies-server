@@ -34,8 +34,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  config.action_cable.url = 'wss://gym-buddies-server.com/cable'
+  config.action_cable.allowed_request_origins = ['https://gym-buddies-server.herokuapp.com', 'http://gym-buddies-server.herokuapp.com']
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -64,6 +64,7 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
+  config.web_socket_server_url = "wss://gym-buddies-app.herokuapp.com/cable" 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 

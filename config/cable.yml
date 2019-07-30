@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: redis://redistogo:454bbaeaf7e3d69969b97739fa3f1d25@pearlfish.redistogo.com:10096/
   channel_prefix: GymBuddies-API_production
